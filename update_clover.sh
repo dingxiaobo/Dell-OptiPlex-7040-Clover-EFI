@@ -1,9 +1,16 @@
 #!/bin/sh
+
 set -x 
-CLOVER=/Volumes/Clover-v2.4k-4813-X64
+CLOVER=/Volumes/Clover-v2.4k-4920-X64
+if [ ! -d $CLOVER ]; then 
+   echo "$CLOVER not exists!"
+   exit 1
+fi
+
 cp -pR $CLOVER /tmp/Clover
 CLOVER=/tmp/Clover
 
+# merge 'drivers-Off/drivers64UEF' to 'drivers64UEFI'
 cp -pR $CLOVER/EFI/CLOVER/drivers-Off/drivers64UEFI/* $CLOVER/EFI/CLOVER/drivers64UEFI/
 
 EFI=`pwd`
@@ -23,7 +30,6 @@ do
 	cp -p $CLOVER/$filename $EFI/$filename
 done
 
-cp -pR $CLOVER/EFI/CLOVER/drivers-Off/* $EFI/EFI/CLOVER/drivers-Off
 cp -pR $CLOVER/EFI/CLOVER/tools/*       $EFI/EFI/CLOVER/tools
 
 rm -rf $CLOVER
