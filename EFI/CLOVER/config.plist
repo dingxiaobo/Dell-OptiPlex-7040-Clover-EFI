@@ -18,12 +18,13 @@
 				<true/>
 			</dict>
 		</dict>
-		<key>#SSDT-Comment</key>
-		<string>Need to disable SSDT/Generate explicitly to use generic power managerment</string>
 		<key>SSDT</key>
 		<dict>
 			<key>Generate</key>
-			<false/>
+			<dict>
+				<key>PluginType</key>
+				<true/>
+			</dict>
 		</dict>
 	</dict>
 	<key>Boot</key>
