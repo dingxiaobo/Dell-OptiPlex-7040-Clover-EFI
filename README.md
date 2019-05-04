@@ -1,4 +1,4 @@
-# DELL-OptiPlex-7040-Clover
+# OptiPlex 7040 Clover
 Clover for OptiPlex 7040 with Skylake CPU & GPU
 
 Only fix the Graphics by Bios hack, Ethernet, USB, and sound card with AppleALC, but, is enough! Less is more.
