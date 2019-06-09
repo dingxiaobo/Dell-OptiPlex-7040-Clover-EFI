@@ -36,3 +36,6 @@ Test with OptiPlex 7040 which using i7-6700, Intel HD Graphics 530, Intel I219LM
 2. What should we do before install macOS system upgrade ? eg.upgrade from 10.14.4 to 10.14.5
   
    Maybe you need to disable SIP before doing upgrade: Set "config.plist/RtVariables/CsrActiveConfig=0x67".
+
+### Credits
+- [monaive](https://github.com/monaive) for IGPU relate fix.
