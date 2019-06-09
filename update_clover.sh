@@ -1,7 +1,9 @@
 #!/bin/sh
 
-set -x 
-CLOVER=/Volumes/Clover-v2.4k-4920-X64
+# Download the iso from "https://sourceforge.net/projects/cloverefiboot/files/Bootable_ISO/" and mount it.
+# Then run this shell
+
+CLOVER=/Volumes/Clover-v2.4k-4945-X64
 if [ ! -d $CLOVER ]; then 
    echo "$CLOVER not exists!"
    exit 1
