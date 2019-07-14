@@ -1,33 +1,34 @@
 # OptiPlex 7040 Clover
 Clover for OptiPlex 7040 with Skylake CPU & GPU
 
-Only fix the Graphics by Bios hack, Ethernet, USB, and sound card with AppleALC, but, is enough! Less is more.
+Only fix the Graphics by modify UEFI variables, Ethernet, USB, and sound card with AppleALC, but, is enough! Less is more.
 
-Test with OptiPlex 7040 which using i7-6700, Intel HD Graphics 530, Intel I219LM2 Ethernet, macOS 10.14.4
+Test with OptiPlex 7040 which using i7-6700, Intel HD Graphics 530, Intel I219LM2 Ethernet, macOS 10.14.5
 
-- I extract the BIOS.rom by AMI Flasher utility.
-- I modity the DVMT to 64MB by [https://www.firewolf.science/2015/04/guide-intel-hd-graphics-5500-on-os-x-yosemite-10-10-3/]
-- DVMT Pre-Allocated address is 0x350, so "setup_var 0x350 0x2" to set 64MB [中文教程](https://zhuanlan.zhihu.com/p/39798235)
-- Note: the DVMT fixup will lose after set BOIS to factory default!
-- DVMT fix is recommend, even though whatevergreen can do some path to fix it.
+## UEFI Variables
 
-## DVMT fix step
-1. unzip 'EFI-shell.zip' to a `FAT32` partition of a USB disk
+In order to run macOS successfully a number of EFI BIOS variables need to be modified. The included Clover bootloader contains an updated `DVMT.efi`, which includes a `setup_var` command to help do just that.
+
+`DVMT.efi` can be launched from Clover directly by renaming it to `Shell64U.efi` in the `tools` folder.
+
+The following variables need to be updated:
+
+| Variable              | Offset | Default value  | Desired value   | Comment                                                    |
+|-----------------------|--------|----------------|-----------------|------------------------------------------------------------|
+| CFG Lock              | 0xaf   | 0x01 (Enabled) | 0x00 (Disabled) | Disable CFG Lock to prevent MSR 0x02 errors on boot        |
+| DVMT Pre-allocation   | 0x350  | 0x01 (32M)     | 0x04 (128M)     | Increase DVMT pre-allocated size to 128M for 2K+ displays  |
+
+## Modify DVMT variable step
+
+1. Start up and enter `Clover boot menu`, select `Start UEFI shell 64` and enter.
    
-   you will see some thing like this : "/Volumes/UDISK/EFI/BOOT/bootx64.efi" 
+   I has replace `Shell64U.ef` with `DVMT.efi`, so you are running `DVMT.efi` in fact.
    
-   or "E:/EFI/BOOT/bootx64.efi" 
-2. reboot you machine using this this USB disk in `UEFI BOOT MODE`
-   
-   and you will see a cmd line
-3. just run `setup_var 0x350 0x2` using this cmd line
+3. just run `setup_var 0x350 0x4` using this cmd line
 
 4. fine, the graphics is ok to boot up macOS
 
-### Know issue 
-1. Just one DP port work
-   
-   you need to switch to an other DP port and reboot, if no DP signal after you see the "white apple" startup logo.
+5. Note: the UEFI Variables will lose after set BOIS to factory default!
 
 ### FAQ
 1. SIP enable default ?
