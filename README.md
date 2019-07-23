@@ -15,16 +15,16 @@ The following variables need to be updated:
 
 | Variable              | Offset | Default value  | Desired value   | Comment                                                    |
 |-----------------------|--------|----------------|-----------------|------------------------------------------------------------|
-| CFG Lock              | 0xaf   | 0x01 (Enabled) | 0x00 (Disabled) | Disable CFG Lock to prevent MSR 0x02 errors on boot        |
+| CFG Lock              | 0xAF   | 0x01 (Enabled) | 0x00 (Disabled) | Disable CFG Lock to prevent MSR 0x02 errors on boot        |
 | DVMT Pre-allocation   | 0x350  | 0x01 (32M)     | 0x04 (128M)     | Increase DVMT pre-allocated size to 128M for 2K+ displays  |
 
 ## Modify DVMT variable step
 
 1. Start up and enter `Clover boot menu`, select `Start UEFI shell 64` and enter.
    
-   I has replace `Shell64U.ef` with `DVMT.efi`, so you are running `DVMT.efi` in fact.
+   I has replace `Shell64U.efi` with `DVMT.efi`, so you are running `DVMT.efi` in fact.
    
-3. just run `setup_var 0x350 0x4` using this cmd line
+3. just run `setup_var 0x350 0x4` using this cmd line [中文教程](https://zhuanlan.zhihu.com/p/39798235)
 
 4. fine, the graphics is ok to boot up macOS
 
