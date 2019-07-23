@@ -149,7 +149,7 @@
 			<string>Recovery</string>
 		</array>
 		<key>Theme</key>
-		<string>Hackintosh_ID</string>
+		<string>SimpleThemeDark</string>
 	</dict>
 	<key>Graphics</key>
 	<dict>
