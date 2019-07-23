@@ -146,6 +146,7 @@
 		<key>Hide</key>
 		<array>
 			<string>Preboot</string>
+			<string>Recovery</string>
 		</array>
 		<key>Theme</key>
 		<string>Hackintosh_ID</string>
