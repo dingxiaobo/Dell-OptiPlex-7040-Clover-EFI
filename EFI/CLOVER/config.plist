@@ -163,6 +163,21 @@
 	<dict>
 		<key>AppleRTC</key>
 		<false/>
+		<key>KernelToPatch</key>
+		<array>
+			<dict>
+				<key>Comment</key>
+				<string>Disable panic kext logging on 10.14/10.15 release kernel (credit Vandroiy)</string>
+				<key>Disabled</key>
+				<false/>
+				<key>Find</key>
+				<data>igKEwHRH</data>
+				<key>MatchOS</key>
+				<string>10.14.x,10.15.x</string>
+				<key>Replace</key>
+				<data>igKEwOtH</data>
+			</dict>
+		</array>
 		<key>KextsToPatch</key>
 		<array>
 			<dict>
